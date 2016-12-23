@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CakeController {
+public class CakeRestController {
 
     private CakeRepository cakeRepository;
 
     @Autowired
-    public CakeController(CakeRepository repository) {
+    public CakeRestController(CakeRepository repository) {
         Assert.notNull(repository, "CakeRepository must not be null!");
         this.cakeRepository = repository;
     }
 
-    @RequestMapping("/cakes")
+    @RequestMapping(value = "/cakes", produces = "application/json")
     public Collection<CakeEntity> cakes() {
         return cakeRepository.findAll();
     }

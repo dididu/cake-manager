@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+    <h2 th:text="'Total, ' + ${cakesNumber} + ' cakes!'" />
+
+    <table class="table-striped, table-fluid">
+        <th:block th:each="cake : ${cakes}">
+            <tr>
+                <td th:text="${cake.title}">Title</td>
+                <td th:text="${cake.description}">Title</td>
+                <td><img class="cake-icon" th:src="${cake.image}"/></td>
+            </tr>
+        </th:block>
+    </table>
+    </div>
+</body>
+</html>
