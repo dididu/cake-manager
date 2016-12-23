@@ -2,13 +2,11 @@ package com.waracle;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Cakes")
-public class CakeEntity {
+public class Cake {
 
     //private static final long serialVersionUID = -1798070786993154676L;
 
@@ -65,7 +63,7 @@ public class CakeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CakeEntity that = (CakeEntity) o;
+        Cake that = (Cake) o;
 
         if (!title.equals(that.title)) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;

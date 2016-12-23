@@ -19,7 +19,7 @@ public class CakeRestController {
     }
 
     @RequestMapping(value = "/cakes", produces = "application/json")
-    public Collection<CakeEntity> cakes() {
+    public Collection<Cake> cakes() {
         return cakeRepository.findAll();
     }
 }
