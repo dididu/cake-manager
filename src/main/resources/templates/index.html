@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello WebSocket</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/main.css" rel="stylesheet" />
+    <title>Cake Manager</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/main.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="container">
-    <h2 th:text="'Total, ' + ${cakesNumber} + ' cakes!'" />
+<div class="container">
 
-    <table class="table-striped, table-fluid">
-        <th:block th:each="cake : ${cakes}">
-            <tr>
-                <td th:text="${cake.title}">Title</td>
-                <td th:text="${cake.description}">Title</td>
-                <td><img class="cake-icon" th:src="${cake.image}"/></td>
-            </tr>
-        </th:block>
-    </table>
+    <h1>Cake Manager</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Cake Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                    </tr>
+                    </thead>
+
+                    <th:block th:each="cake : ${cakes}">
+                        <tr>
+                            <td th:text="${cake.title}">Title</td>
+                            <td th:text="${cake.description}">Title</td>
+                            <td><img class="cake-icon" th:src="${cake.image}"/></td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+
+            <div class="col-sm-4">
+
+                <h2>Add cake</h2>
+
+                <form action="#" th:action="@{/}" th:object="${cake}" method="post">
+
+                    <div class="form-group">
+                        <label for="cakeTitle">Cake name</label>
+                        <input type="text" class="form-control" id="cakeTitle" th:field="*{title}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cakeDescription">Cake description</label>
+                        <input type="text" class="form-control" id="cakeDescription" th:field="*{description}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cakeImage">Cake image url</label>
+                        <input type="text" class="form-control" id="cakeImage" th:field="*{image}"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+                <br/>
+
+                <div class="alert alert-danger" role="alert" th:if="${error}">
+                    <strong>Oh snap!</strong>
+                    <p th:text="${error}">No error</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </body>
 </html>

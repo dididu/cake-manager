@@ -2,6 +2,8 @@ package com.waracle;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.waracle.domain.Cake;
+import com.waracle.repository.CakeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ public class CakeRepositoryInitializer {
     @Autowired
     public CakeRepositoryInitializer(CakeRepository repository, ObjectMapper mapper) {
         Assert.notNull(repository, "CakeRepository param must not be null!");
+        Assert.notNull(mapper, "ObjectMapper param must not be null!");
         this.cakeRepository = repository;
         this.mapper = mapper;
     }
@@ -40,7 +43,8 @@ public class CakeRepositoryInitializer {
             List<Cake> dedupedCakes = cakes.stream().distinct().collect(Collectors.toList());
             cakeRepository.save(dedupedCakes);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) { // Should be a lot more sophisticated error processing
             log.error("Error initialising the database. Will start empty.", e);
         }
     }

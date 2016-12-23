@@ -1,29 +1,33 @@
-package com.waracle;
+package com.waracle.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cakes")
+@Table(name = "Cakes", uniqueConstraints = @UniqueConstraint(columnNames = {"title", "description", "image"}))
 public class Cake {
-
-    //private static final long serialVersionUID = -1798070786993154676L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name = "TITLE", nullable = false, length = 100)
+    @Column(name = "title", nullable = false, length = 100)
     private String title;
 
-    @Column(name = "DESCRIPTION", nullable = false, length = 100)
+    @Column(name = "description", nullable = false, length = 100)
     @JsonProperty("desc")
     private String description;
 
-    @Column(name = "IMAGE", nullable = false, length = 300)
+    @Column(name = "image", nullable = false, length = 300)
     private String image;
+
+    public Cake() {
+        this.title = "";
+        this.description = "";
+        this.image = "";
+    }
 
     public Integer getId() {
         return id;

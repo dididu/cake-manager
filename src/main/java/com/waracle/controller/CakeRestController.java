@@ -1,7 +1,9 @@
-package com.waracle;
+package com.waracle.controller;
 
 import java.util.Collection;
 
+import com.waracle.domain.Cake;
+import com.waracle.repository.CakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
