@@ -22,14 +22,13 @@ public class CakeHtmlController {
         this.cakeRepository = repository;
     }
 
-    @GetMapping(value = "/", produces = "application/html")
+    @GetMapping(value = {"/", "/cakes"})
     public String cakes(Model model) {
-
         populateModel(model);
         return "index";
     }
 
-    @PostMapping(value = "/", produces = "application/html")
+    @PostMapping(value = "/")
     public String greetingSubmit(@ModelAttribute Cake cake, Model model) {
 
         try {
