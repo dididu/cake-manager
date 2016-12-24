@@ -4,14 +4,15 @@ import java.util.Collection;
 
 import com.waracle.domain.Cake;
 import com.waracle.repository.CakeRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.ConstraintViolationException;
 
 @RestController
 public class CakeRestController {
@@ -24,6 +25,10 @@ public class CakeRestController {
         this.cakeRepository = repository;
     }
 
+    @ApiOperation(value = "getCakes", response = Cake.class, responseContainer = "List")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "List of cakes returned successfully"),
+            @ApiResponse(code = 500, message = "Error returning the list of cakes")})
     @GetMapping(value = "/cakes", produces = "application/json")
     public ResponseEntity<?> cakes() {
 
@@ -36,7 +41,13 @@ public class CakeRestController {
         }
     }
 
+    @ApiOperation(value = "createCake", response = Cake.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "New cake created"),
+            @ApiResponse(code = 400, message = "Bad request - request payload caused an error"),
+            @ApiResponse(code = 500, message = "Unexpected failure")})
     @PostMapping(value = "/cakes", produces = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> createCake(@RequestBody Cake cake) {
 
         try {
