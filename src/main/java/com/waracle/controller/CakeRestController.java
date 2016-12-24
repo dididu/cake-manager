@@ -44,7 +44,8 @@ public class CakeRestController {
     @ApiOperation(value = "createCake", response = Cake.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "New cake created"),
-            @ApiResponse(code = 400, message = "Bad request - request payload caused an error"),
+            @ApiResponse(code = 409, message = "Conflict - cake with the same " +
+                    "combination of title, description and image already exists"),
             @ApiResponse(code = 500, message = "Unexpected failure")})
     @PostMapping(value = "/cakes", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
@@ -55,7 +56,7 @@ public class CakeRestController {
             return new ResponseEntity<Cake>(savedCake, null, HttpStatus.CREATED);
         }
         catch (DataIntegrityViolationException e) {
-            return new ResponseEntity<Cake>(null, null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Cake>(null, null, HttpStatus.CONFLICT);
         }
         catch (Exception e) { // Should be a lot more sophisticated error handling
             return new ResponseEntity<Cake>(null, null, HttpStatus.INTERNAL_SERVER_ERROR);
