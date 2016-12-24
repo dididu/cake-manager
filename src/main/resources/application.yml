@@ -8,7 +8,7 @@ spring:
   profiles: container
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: mysql
+    url: jdbc:mysql://cakedb:${MYSQL_PORT_3306_TCP_PORT}/${MYSQL_ENV_MYSQL_DATABASE}
     database: cake
     username: ${MYSQL_ENV_MYSQL_USER}
     password: ${MYSQL_ENV_MYSQL_PASSWORD}
