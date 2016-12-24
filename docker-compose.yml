@@ -8,19 +8,23 @@ services:
   cake-manager:
     image: dididu/cake-manager
     container_name: cake-manager
+    restart: always
+    env_file:
+     - cake.env
     ports:
      - "8282:8080"
     links:
-     - mysql
+     - mysql:cakedb
 
   mysql:
     image: mysql:latest
     container_name: mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=p4SSW0rd
-      - MYSQL_DATABASE=cake
-      - MYSQL_USER=dbuser
-      - MYSQL_PASSWORD=dbp4ss
+    restart: always
+    env_file:
+     - cake.env
+
+    ports:
+      - "3306:3306"
 
     volumes:
       - data-mysql:/data/db
