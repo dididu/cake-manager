@@ -1,6 +1,0 @@
-- Rewrite the app using Spring Boot
-- User H2 autoconfigured by Spring Boot as the store
-- Fix CakeEntity
-- Assumption: It is allowed to have cakes with the same name and/or the same description and/or the same picture
-- Rewrite pre-loading of the cakes data from JSON using ObjectMapper pre-created by Spring Boot autoconfiguration
-- Assumption: Cakes are considered identical if name, description and picture are all the same
