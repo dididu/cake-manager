@@ -64,3 +64,4 @@ etc, see [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/r
 - Add circle.yml to use [CircleCI](https://circleci.com/gh/dididu/cake-manager/) to automatically build the app, create the Docker container and deploy it to [Docker Hub](https://hub.docker.com/r/dididu/cake-manager/)
 - Add [Swagger](https://springfox.github.io/springfox/docs/current/) auto-documentation to the service to document the REST api
 - Add [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) to monitor the service state at runtime via http endpoints
+- Add Unit tests for CakeRestController using mocked data repository via [Mockito](http://site.mockito.org/)

@@ -2,7 +2,7 @@ spring:
   profiles: default
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:sampletest;MODE=MySQL
+    url: jdbc:h2:mem:sampletest;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
 server:
   port: 8282
 ---
