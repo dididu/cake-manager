@@ -17,7 +17,7 @@ REST API documentation is available via:
 [http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller](http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller)
 
 
-Runtime service status can be motiored via HTTP endpoints:
+Runtime service status can be motiored via HTTP endpoints:  
 [http://vps270495.ovh.net:8282/health](http://vps270495.ovh.net:8282/health)  
 [http://vps270495.ovh.net:8282/env](http://vps270495.ovh.net:8282/env)  
 [http://vps270495.ovh.net:8282/trace](http://vps270495.ovh.net:8282/trace)
