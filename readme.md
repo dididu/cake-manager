@@ -16,6 +16,14 @@ In your browser go to:
 REST API documentation is available via:
 [http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller](http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller)
 
+
+Runtime service status can be motiored via HTTP endpoints:
+[http://vps270495.ovh.net:8282/health](http://vps270495.ovh.net:8282/health)  
+[http://vps270495.ovh.net:8282/env](http://vps270495.ovh.net:8282/env)  
+[http://vps270495.ovh.net:8282/trace](http://vps270495.ovh.net:8282/trace)
+etc, see [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html) 
+
+
 ---
 
 **Change log**
@@ -31,7 +39,7 @@ REST API documentation is available via:
 - Create _CakeHtmlController_ controller:
   - Responds to browser requests (Header Accept field  *text/html*)
   - Renders a view using [Thymeleaf](http://www.thymeleaf.org/) template engine
-  - The template uses [Twitter Bootstrap](getbootstrap.com/) for html UI layout and styling
+  - The template uses [Twitter Bootstrap](http://getbootstrap.com/) for html UI layout and styling
   - The rendered page contains a form for adding a new cake
   
 - Create _CakeRestController_ controller:
