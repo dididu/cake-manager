@@ -1,6 +1,8 @@
 # Cake Manager
 *Waracle Code Test*
 
+Build: [![CircleCI](https://circleci.com/gh/dididu/cake-manager/tree/master.svg?style=svg)](https://circleci.com/gh/dididu/cake-manager/tree/master)
+
 **Running locally**
 
 > git clone git@github.com:dididu/cake-manager.git  
