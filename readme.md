@@ -13,6 +13,18 @@ In your browser go to:
 **The app is already hosted on a server:**    
 [http://vps270495.ovh.net:8282/](http://vps270495.ovh.net:8282/)
 
+**Examples how to use REST API:**  
+Get cakes  
+*curl -X GET --header 'Accept: application/json' 'http://vps270495.ovh.net:8282/cakes'*
+
+Create a new cake  
+*curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+   "title": "Cockroach cake", \ 
+   "desc": "Very tasty", \ 
+   "image": "" \ 
+ }' 'http://vps270495.ovh.net:8282/cakes'*
+
+
 REST API documentation is available via:
 [http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller](http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller)
 
