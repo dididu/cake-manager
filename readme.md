@@ -31,7 +31,7 @@ REST API documentation is available via:
 [http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller](http://vps270495.ovh.net:8282/swagger-ui.html#/cake-rest-controller)
 
 
-Runtime service status can be motiored via HTTP endpoints:  
+Runtime service status can be monitored via HTTP endpoints:  
 [http://vps270495.ovh.net:8282/health](http://vps270495.ovh.net:8282/health)  
 [http://vps270495.ovh.net:8282/env](http://vps270495.ovh.net:8282/env)  
 [http://vps270495.ovh.net:8282/trace](http://vps270495.ovh.net:8282/trace)
@@ -43,7 +43,7 @@ etc, see [Spring Boot Actuator](http://docs.spring.io/spring-boot/docs/current/r
 **Change log**
 
 - Rewrite the app using [Spring Boot](https://projects.spring.io/spring-boot/)  
-- Use H2 in-memory databased autoconfigured by Spring Boot as the store when running in default Spring profile (locally)
+- Use H2 in-memory database autoconfigured by Spring Boot as the store when running in default Spring profile (locally)
 - Fix *CakeEntity*, rename to just *Cake*   
    **Assumption:** Cakes are considered identical if name, description and picture are all the same
 
