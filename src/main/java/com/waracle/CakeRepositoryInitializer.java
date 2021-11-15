@@ -41,7 +41,7 @@ public class CakeRepositoryInitializer {
             List<Cake> cakes = mapper.readValue(new URL(cakeInfoUrl),
                     new TypeReference<List<Cake>>() {});
             List<Cake> dedupedCakes = cakes.stream().distinct().collect(Collectors.toList());
-            cakeRepository.save(dedupedCakes);
+            cakeRepository.saveAll(dedupedCakes);
 
         }
         catch (Exception e) { // Should be a lot more sophisticated error processing
